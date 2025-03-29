@@ -1,0 +1,13 @@
+.title{
+    color: #c13434;
+    font-family: "Montserrat";
+    font-weight: 800;
+    text-align: center;
+}
+
+.top-bar{
+    background-color: #f5ba13;
+    margin: auto;
+    padding: 100px 32px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}

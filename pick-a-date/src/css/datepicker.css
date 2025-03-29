@@ -1,0 +1,26 @@
+.subtitle{
+    color: #65d556;
+    font-family: "Montserrat";
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.container{
+    display: flex-box;
+    width: 100vw; /* Viewport width, covers the entire width */
+    box-sizing: border-box; /* Include padding in width and height calculations */
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+}
+
+#datePickerSubtitle{
+    
+}
+
+.datePickerWidget{
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
