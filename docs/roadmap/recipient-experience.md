@@ -2,9 +2,9 @@
 
 ## Status
 
-Approved implementation contract; not yet shipped. This document owns the
-public invitation flow, final date card, language, responsive behavior, and
-recipient-side persistence.
+Implemented in source. This document preserves the approved public flow, final
+card, language, responsive behavior, and persistence design; `docs/logic/` owns
+current behavior.
 
 ## Route and entry behavior
 
@@ -108,4 +108,3 @@ are no longer public.
 - Target current iOS Safari, Android Chrome, and common messaging-app in-app
   browsers. Dashboard browser support may be narrower, but public confirmation
   cannot require a desktop browser.
-

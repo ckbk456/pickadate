@@ -2,8 +2,10 @@
 
 ## Status
 
-Approved setup contract; resources are created by Khang because they establish
-external accounts, consent configuration, spend boundaries, and secrets. Never
+Google Cloud development OAuth and the Convex development deployment are created;
+their local/server bindings are synchronized. Resend and production remain
+pending. External resources are created by Khang because they establish
+accounts, consent configuration, spend boundaries, and secrets. Never
 commit or paste secret values into issues, pull requests, screenshots, logs, or
 chat.
 
@@ -72,6 +74,17 @@ Values present only in local `.env.local` must be transferred through the
 authenticated Convex environment command or dashboard before server functions
 can use them.
 
+Repository helpers avoid printing secret values:
+
+```bash
+npm run auth:keys              # create local JWT/JWKS if absent
+npm run auth:keys:push         # push existing JWT/JWKS to selected Convex dev
+npm run convex:env:sync        # push present Google/owner/Resend allowlisted vars
+```
+
+The sync script skips unset optional Resend variables and never copies
+`NEXT_PUBLIC_CONVEX_URL` into server secrets.
+
 ## Resend development
 
 Implementation can initially use Resend's safe development behavior. Before a
@@ -79,7 +92,8 @@ real recipient test:
 
 - verify a sender domain controlled by the owner;
 - configure a development API key only in the Convex development environment;
-- configure explicit sender address and owner delivery address;
+- configure `RESEND_API_KEY`, `RESEND_FROM_EMAIL`, and optionally
+  `OWNER_NOTIFICATION_EMAIL` (otherwise owner mail falls back to `OWNER_EMAIL`);
 - disable open and click tracking; and
 - authorize each real email test separately because it sends an external
   message.

@@ -2,8 +2,8 @@
 
 ## Status
 
-Approved target architecture; not yet shipped. Current implemented behavior is
-still described by `docs/logic/application-foundation.md`.
+Implemented target architecture. Current behavior is indexed by
+`docs/logic/README.md`; manual/provider/deployment gates remain pending.
 
 ## Target stack
 

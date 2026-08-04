@@ -12,11 +12,10 @@ files.
 - [`archived/`](archived/README.md): historical material that is no longer active
 - [`../testing/MANUAL TO-DO/`](../testing/MANUAL%20TO-DO/README.md): active human verification
 
-Current application behavior is owned by
-[`logic/application-foundation.md`](logic/application-foundation.md). The initial
-approved MVP direction is protected in
+Current application behavior is indexed by [`logic/README.md`](logic/README.md).
+The initial approved MVP direction remains protected in
 [`roadmap/product-brief.md`](roadmap/product-brief.md).
 
-The complete unshipped decision lock is indexed by
-[`roadmap/README.md`](roadmap/README.md). Roadmap approval must never be reported
-as implemented behavior.
+The original decision lock and remaining release gates are indexed by
+[`roadmap/README.md`](roadmap/README.md). Implementation does not imply human,
+provider, deployment, or production acceptance.

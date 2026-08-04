@@ -1,10 +1,13 @@
 # Manual testing
 
-Manual testing is consolidated by durable product domain. The only active domain
-today is the application foundation:
+Every guide below is active and pending until a human records environment,
+commit/PR head, evidence, and pass/fail per scenario.
 
 - [`application-foundation.md`](application-foundation.md)
+- [`owner-auth-and-dashboard.md`](owner-auth-and-dashboard.md)
+- [`catalog-and-media.md`](catalog-and-media.md)
+- [`invitations-and-recipient.md`](invitations-and-recipient.md)
+- [`notifications-and-release.md`](notifications-and-release.md)
 
-Add a domain guide when real scheduling, activity, place, confirmation, email,
-identity, or provider behavior ships. Do not create per-PR checklists or claim a
-scenario passed before a human performs it in the named environment.
+Store only sanitized evidence under `testing/artifacts/`. Never capture a private
+credential, personal email, OAuth token, or provider secret.

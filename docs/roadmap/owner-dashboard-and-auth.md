@@ -2,8 +2,8 @@
 
 ## Status
 
-Approved implementation contract; not yet shipped. This document owns the
-dashboard information architecture, owner authorization, and owner operations.
+Implemented in source. This document preserves the approved dashboard,
+authorization, and owner-operation design; `docs/logic/` owns current behavior.
 
 ## Authentication boundary
 
@@ -94,4 +94,3 @@ is no Sent state because link sharing occurs outside the application.
   data.
 - Destructive actions state exactly what remains recoverable.
 - Delivery failure never implies confirmation failure.
-

@@ -1,7 +1,10 @@
 # Logic documents
 
-Logic documents describe current behavior only. Proposed features belong in the
-roadmap until they ship.
+These documents own current implemented behavior. Human/provider acceptance is
+reported separately and remains pending until evidence exists.
 
-- [`application-foundation.md`](application-foundation.md): current Next.js shell,
-  routes, runtime, and explicit capability boundaries
+- [`application-foundation.md`](application-foundation.md)
+- [`owner-auth-and-dashboard.md`](owner-auth-and-dashboard.md)
+- [`catalog-and-media.md`](catalog-and-media.md)
+- [`invitations-and-recipient-flow.md`](invitations-and-recipient-flow.md)
+- [`notifications-and-integrations.md`](notifications-and-integrations.md)

@@ -2,10 +2,9 @@
 
 ## Status
 
-Approved sequence; implementation in progress only when an owning branch and
-worktree are named. Each slice must update its `docs/logic/` owner and durable
-manual guide when behavior ships. Provider and human gates remain pending until
-actually performed.
+Source implementation is complete on the named dependent MVP branch. Each slice
+is owned by `docs/logic/` and a durable manual guide. Provider, visual, device,
+accessibility, deployment, and production gates remain pending until performed.
 
 ## Integration rule
 

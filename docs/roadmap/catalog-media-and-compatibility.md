@@ -2,8 +2,8 @@
 
 ## Status
 
-Approved implementation contract; not yet shipped. This document owns catalog
-fields, invitation curation rules, media processing, and compatibility warnings.
+Implemented in source. This document preserves the approved catalog, curation,
+media, and compatibility design; `docs/logic/` owns current behavior.
 
 ## Activity catalog
 
@@ -104,4 +104,3 @@ record, invitation snapshot, confirmation, or pending job references it.
 Convex File Storage owns MVP media. Application code owns the media manifest and
 variant semantics so a later commercial migration can copy objects to another
 storage provider without changing domain records or public components.
-
