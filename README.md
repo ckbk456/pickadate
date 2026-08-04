@@ -1,10 +1,11 @@
 # Pick-a-Date
 
-Pick-a-Date is a personal web application for inviting someone on a date and
-planning the details together. The repository currently contains a clean
-Next.js application foundation; scheduling, activity selection, place
-recommendations, and email confirmation are product direction, not shipped
-features yet.
+Pick-a-Date is a private, single-owner web application for offering one person a
+curated date invitation. The recipient chooses one owner-approved time,
+activity, and matching place; their confirmation finalizes a shared plan. The
+repository currently contains a clean Next.js application foundation. The
+approved MVP remains product direction until its owning logic documents say it
+has shipped.
 
 ## Local development
 
@@ -37,7 +38,8 @@ is configured yet, so do not report test coverage or test success.
 - [`AGENTS.md`](AGENTS.md): repository rules for Codex and contributors
 - [`docs/README.md`](docs/README.md): active product and engineering documents
 - [`docs/logic/application-foundation.md`](docs/logic/application-foundation.md): current shipped behavior
-- [`docs/roadmap/product-brief.md`](docs/roadmap/product-brief.md): protected initial product direction
+- [`docs/roadmap/product-brief.md`](docs/roadmap/product-brief.md): protected approved product direction
+- [`docs/roadmap/README.md`](docs/roadmap/README.md): complete MVP decision lock and implementation sequence
 - [`testing/MANUAL TO-DO/README.md`](testing/MANUAL%20TO-DO/README.md): active human verification surface
 - [`src/app`](src/app): Next.js App Router source
 

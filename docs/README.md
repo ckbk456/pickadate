@@ -14,5 +14,9 @@ files.
 
 Current application behavior is owned by
 [`logic/application-foundation.md`](logic/application-foundation.md). The initial
-product direction is protected in
+approved MVP direction is protected in
 [`roadmap/product-brief.md`](roadmap/product-brief.md).
+
+The complete unshipped decision lock is indexed by
+[`roadmap/README.md`](roadmap/README.md). Roadmap approval must never be reported
+as implemented behavior.

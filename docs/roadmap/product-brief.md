@@ -2,43 +2,85 @@
 
 ## Status
 
-Proposed. This document records Khang Cao's initial direction and is protected;
-do not broaden or alter it without consultation.
+Approved product direction. Khang Cao approved this brief on 2026-08-05. The
+features are not implemented until their owning `docs/logic/` documents say so.
+Changing an actor, confirmation authority, privacy boundary, or MVP non-goal
+requires Khang's approval.
 
-## Intended outcome
+## Product promise
 
-Khang can send someone a simple invitation to go on a date. The invitee can
-select a suitable time and preferred activities, receive suggested places, and
-arrive at a shared plan. Both people then receive the same email confirmation.
+Pick-a-Date is Khang's private, single-owner invitation tool. Khang curates a
+catalog, offers one recipient a controlled set of suitable date plans, and
+shares a private link. The recipient chooses one offered time, one activity,
+and one matching place. Their confirmation finalizes the plan.
 
-## Initial product flow
+The product adds care and personality to an invitation; it does not replace the
+conversation between the two people.
 
-1. Khang creates and shares an invitation.
-2. The invitee selects or proposes a time.
-3. The invitee selects preferred activities.
-4. The application suggests suitable places.
-5. A final choice is confirmed.
-6. Both participants receive an email confirmation.
+## Actors
 
-## Current exclusions
+- **Owner:** Khang, authenticated with one allowlisted Google account.
+- **Recipient:** exactly one person per invitation, using a private bearer link
+  without an account.
+- **Service providers:** Convex for application data, realtime updates, auth,
+  jobs, and media; Resend for transactional email; Google Calendar and Google
+  Maps only through user-initiated links.
 
-None of the flow above is implemented. The current repository is only the
-application and agentic-workflow foundation.
+## Locked MVP path
 
-## Decisions required before implementation
+1. The owner maintains activities, places, and place photography.
+2. The owner creates an invitation with a recipient display name and optional
+   message.
+3. The owner offers exact start/end slots, each with a friendly label such as
+   morning, afternoon, night, or late.
+4. The owner enables a subset of activities and matching places and may enable
+   outfit-color and transport questions.
+5. The owner activates the invitation and manually shares its private link.
+6. The recipient chooses one still-valid slot, one activity, and one place,
+   answers enabled optional questions, reviews the plan, and confirms.
+7. Confirmation atomically finalizes the plan. Both views become read-only and
+   update in realtime.
+8. The owner always receives a confirmation email. The recipient receives one
+   only when they provided an email address.
+9. Each person can open an editable, prefilled Google Calendar event from a
+   clear button. Pick-a-Date never creates the event automatically.
 
-- Invitation identity: anonymous link, named recipient, account, or another
-  model; link forwarding and expiration must be considered.
-- Scheduling: single time, multiple options, time zone handling, edits, and
-  conflict resolution.
-- Activity agreement: who proposes, whether both people vote, and how a final
-  choice is reached.
-- Place context: city or meeting area, travel radius, price range, availability,
-  accessibility needs, and the provider/data source.
-- Confirmation lifecycle: who can finalize, edit, cancel, or resend and how both
-  participants see the same version.
-- Email safety: consent, sender identity, deliverability, retries, duplicate
-  prevention, abuse controls, and retention of personal data.
+## Experience principles
 
-These are product and privacy choices, not reasons to pre-emptively add accounts,
-a database, maps, or an email provider.
+- The invitation is Vietnamese and mobile-first. The dashboard is English and
+  desktop-first, while remaining usable at narrow widths.
+- The tone is warm, playful, and confident—not intense, childish, wedding-like,
+  or guilt-driven.
+- Owner photography and clear choices carry the experience. Motion is brief,
+  purposeful, and reduced when the device requests reduced motion.
+- A recipient's unfinished choices belong to their device. The owner cannot
+  observe opens, partial choices, or engagement behavior.
+
+## MVP boundaries
+
+- One owner and one recipient per invitation.
+- One activity plus one place per confirmed plan.
+- The domain stores ordered plan items and enforces a maximum of one so a future
+  itinerary planner does not require replacing the confirmation model.
+- Fixed `Asia/Ho_Chi_Minh` timezone, stored explicitly for future expansion.
+- Manual link sharing and Google-only calendar handoff.
+- No recipient account, multi-owner workspace, voting, chat, collaborative
+  editing, proposed times, auto calendar sync, Calendar API, `.ics` experience,
+  Maps catalog import, public catalog, analytics, tracking, marketing email,
+  SMS, or generic questionnaire builder.
+
+## Canonical detail
+
+The supporting locks below own implementation-level decisions. This brief wins
+if another roadmap document accidentally broadens the product:
+
+- [`mvp-product-contract.md`](mvp-product-contract.md)
+- [`domain-model-and-lifecycle.md`](domain-model-and-lifecycle.md)
+- [`owner-dashboard-and-auth.md`](owner-dashboard-and-auth.md)
+- [`recipient-experience.md`](recipient-experience.md)
+- [`catalog-media-and-compatibility.md`](catalog-media-and-compatibility.md)
+- [`privacy-notifications-and-integrations.md`](privacy-notifications-and-integrations.md)
+- [`technical-architecture.md`](technical-architecture.md)
+- [`environment-setup.md`](environment-setup.md)
+- [`acceptance-criteria.md`](acceptance-criteria.md)
+- [`implementation-plan.md`](implementation-plan.md)
