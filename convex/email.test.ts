@@ -6,7 +6,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import type { Id } from "./_generated/dataModel";
 import schema from "./schema";
 
-const modules = import.meta.glob("./**/!(*.*.*)*.*s");
+const modules = import.meta.glob(["./**/*.{js,ts}", "!./**/*.test.ts", "!./**/*.d.ts"]);
 const OWNER_EMAIL = "owner@example.com";
 
 const functions = {

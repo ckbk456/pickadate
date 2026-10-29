@@ -23,7 +23,9 @@ production acceptance remain separate pending manual gates.
 
 ## Local development
 
-Requirements: Node.js 24.17.0 from `.nvmrc` and npm.
+Requirements: Node.js 26.13.0 LTS from `.nvmrc` and npm 12.2.1.
+Install the pinned npm release with `npm install --global npm@12.2.1` after
+selecting the project Node version.
 
 ```bash
 npm ci

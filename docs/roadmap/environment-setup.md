@@ -11,8 +11,8 @@ chat.
 
 ## Local baseline
 
-- Node.js 24.17.0 from `.nvmrc`.
-- npm and the committed `package-lock.json`.
+- Node.js 26.13.0 from `.nvmrc`.
+- npm 12.2.1 and the committed `package-lock.json`.
 - Next.js local origin `http://localhost:3000` by default. If that port belongs
   to another worktree, use an explicitly recorded alternative; never stop an
   unrelated server.
