@@ -16,28 +16,35 @@
     "check": "npm run lint && npm run typecheck && npm run test && npm run build"
   },
   "engines": {
-    "node": ">=24 <25"
+    "node": ">=26.13.0 <27",
+    "npm": ">=12.2.1 <13"
   },
   "dependencies": {
     "@auth/core": "0.41.3",
-    "@convex-dev/auth": "0.0.94",
-    "@phosphor-icons/react": "^2.1.10",
-    "convex": "1.43.0",
-    "next": "16.3.0",
-    "react": "19.2.8",
-    "react-dom": "19.2.8",
-    "resend": "6.18.1",
-    "sharp": "0.35.3"
+    "@convex-dev/auth": "0.0.96",
+    "@phosphor-icons/react": "2.1.10",
+    "convex": "1.48.0",
+    "next": "16.4.3",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "resend": "6.35.0",
+    "sharp": "0.35.5"
   },
   "devDependencies": {
-    "@types/node": "^26.1.2",
-    "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.4",
-    "convex-test": "0.0.55",
-    "eslint": "^9",
-    "eslint-config-next": "16.3.0",
-    "jose": "6.2.4",
-    "typescript": "5.9.3",
-    "vitest": "3.2.7"
+    "@types/node": "26.6.6",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@typescript/native": "npm:typescript@7.0.2",
+    "convex-test": "0.0.66",
+    "eslint": "10.13.0",
+    "eslint-config-next": "16.4.3",
+    "jose": "6.2.14",
+    "typescript": "npm:@typescript/typescript6@6.0.2",
+    "vitest": "5.0.5"
+  },
+  "packageManager": "npm@12.2.1",
+  "allowScripts": {
+    "esbuild@0.27.0": true,
+    "unrs-resolver@1.12.2": true
   }
 }

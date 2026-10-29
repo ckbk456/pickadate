@@ -7,7 +7,7 @@ import type { Id } from "./_generated/dataModel";
 import type { InvitationOptions } from "../src/lib/domain/model";
 import schema from "./schema";
 
-const modules = import.meta.glob("./**/!(*.*.*)*.*s");
+const modules = import.meta.glob(["./**/*.{js,ts}", "!./**/*.test.ts", "!./**/*.d.ts"]);
 const OWNER_EMAIL = "owner@example.com";
 const CONFIRMATION_KEY = "36b8f84d-df4e-4d49-b662-bcde71a8764f";
 

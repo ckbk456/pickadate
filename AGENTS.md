@@ -19,8 +19,8 @@
 
 - Integration branch: `master`.
 - Implementation branches: `codex/<short-kebab-case-task>`.
-- Runtime: Node.js 24.17.0 from `.nvmrc`.
-- Package manager: npm; `package-lock.json` is authoritative.
+- Runtime: Node.js 26.13.0 from `.nvmrc`.
+- Package manager: npm 12.2.1; `package-lock.json` is authoritative.
 - Framework: Next.js 16 App Router with React 19 and strict TypeScript.
 - Application source: `src/app/`, `src/components/`, and `src/lib/`.
 - Backend: Convex schema/functions/auth/storage/realtime/jobs under `convex/`.
