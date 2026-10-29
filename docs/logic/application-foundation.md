@@ -2,37 +2,46 @@
 
 ## Status
 
-Current and implemented.
+Current and implemented. Automated source validation is green; human visual,
+device, accessibility, OAuth, inbox, and deployment acceptance remains pending.
 
 ## Runtime and structure
 
-- The repository is a Next.js 16 App Router application using React 19 and
-  JavaScript.
-- `src/app/layout.js` owns root metadata and document structure.
-- `src/app/page.js` owns the `/` route.
-- `src/app/globals.css` owns the current visual foundation and responsive rules.
-- Node.js 24.17.0 and npm are the supported local/CI baseline.
+- Next.js 16 App Router, React 19, and strict TypeScript run from the repository
+  root. There is no nested application.
+- Convex owns persistent state, realtime subscriptions, authorization, scheduled
+  jobs, and file storage. Generated bindings under `convex/_generated/` are
+  committed.
+- Node.js 24.17.0 and npm are the supported local and CI baseline.
+- `src/app` owns pages and route handlers; `src/components` owns dashboard and
+  recipient UI; `src/lib/domain` owns deterministic domain helpers.
 
-## Current behavior
+## Routes
 
-The `/` route renders a responsive, informational Pick-a-Date foundation page.
-It previews four planned product stages: time selection, activity selection,
-place suggestions, and shared confirmation. The page has no form controls and
-does not claim those capabilities are available.
+- `/` and `/sign-in`: English Google-only owner entry.
+- `/dashboard`: protected invitation management.
+- `/dashboard/activities`, `/dashboard/places`, `/dashboard/settings`: protected
+  catalog and owner configuration.
+- `/dashboard/invitations/new` and `/dashboard/invitations/[id]`: protected
+  builder and lifecycle surfaces.
+- `/preview/[id]`: protected inert recipient preview using real recipient
+  components.
+- `/i/[token]/[[...slug]]`: Vietnamese private recipient experience. The token
+  authorizes; the slug is decorative.
 
-## Invariants and boundaries
+## Privacy and rendering invariants
 
-- The initial page must remain usable at narrow and desktop widths.
-- Navigation must remain keyboard reachable with visible focus.
-- Reduced-motion preferences must not force smooth scrolling or transitions.
-- Product-direction copy must distinguish planned features from implemented
-  behavior.
-- There is no persistence, authentication, invitation link, availability model,
-  recommendation engine, email delivery, analytics, or deployment contract.
-- Secrets and `NEXT_PUBLIC_*` configuration must not be introduced until a real
-  integration has an explicit security and environment contract.
+- Private invitation routes emit generic Vietnamese metadata, `noindex`,
+  `no-referrer`, private/no-store caching, and never mutate on GET.
+- Missing or unavailable public credentials converge on generic recipient
+  states; they do not reveal lifecycle history.
+- There is no analytics, open tracking, presence write, recipient account, or
+  partial recipient draft persistence on the server.
+- Recipient selections persist only in browser local storage scoped by token and
+  link generation.
 
-## Failure behavior
+## Validation
 
-There are no runtime provider calls. Build or render failures surface through
-Next.js; there is no application-specific error handling yet.
+`npm run check` runs lint, TypeScript, deterministic tests, and a production
+build. Convex code generation is run separately when the backend contract
+changes. Automated checks do not replace the manual/provider gates.

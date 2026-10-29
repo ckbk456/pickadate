@@ -2,8 +2,8 @@
 
 ## Status
 
-Approved implementation contract; not yet shipped. This document owns entity,
-snapshot, time, link, and lifecycle semantics.
+Implemented in source. This document preserves the approved entity, snapshot,
+time, link, and lifecycle design; `docs/logic/` owns current behavior.
 
 ## Ownership model
 
@@ -133,4 +133,3 @@ the current invitation revision and all authoritative data in one transaction.
 It either commits a complete valid confirmation or writes nothing. A mutation
 never trusts availability, membership, lifecycle, recipient email, or computed
 calendar data supplied by the browser.
-

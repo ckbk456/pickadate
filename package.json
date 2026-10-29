@@ -3,22 +3,41 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "auth:keys": "node scripts/generate-convex-auth-keys.mjs",
+    "auth:keys:sync": "node scripts/generate-convex-auth-keys.mjs --set-convex",
+    "auth:keys:push": "node scripts/generate-convex-auth-keys.mjs --sync-existing",
+    "convex:env:sync": "node scripts/sync-convex-env.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "check": "npm run lint && npm run build"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "check": "npm run lint && npm run typecheck && npm run test && npm run build"
   },
   "engines": {
     "node": ">=24 <25"
   },
   "dependencies": {
+    "@auth/core": "0.41.3",
+    "@convex-dev/auth": "0.0.94",
+    "@phosphor-icons/react": "^2.1.10",
+    "convex": "1.43.0",
     "next": "16.3.0",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "resend": "6.18.1",
+    "sharp": "0.35.3"
   },
   "devDependencies": {
+    "@types/node": "^26.1.2",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "convex-test": "0.0.55",
     "eslint": "^9",
-    "eslint-config-next": "16.3.0"
+    "eslint-config-next": "16.3.0",
+    "jose": "6.2.4",
+    "typescript": "5.9.3",
+    "vitest": "3.2.7"
   }
 }

@@ -1,43 +1,26 @@
 # Application Foundation Manual Testing
 
-## Scope
+## Status
 
-The informational `/` route, responsive layout, copy boundaries, keyboard focus,
-and the handoff between the branded shell and future product work.
+All scenarios are **Pending human run**. Automated `npm run check` evidence does
+not prove this guide.
 
-## Setup And Safety
+## Setup
 
-- Record the commit or PR head SHA and tester before starting.
-- Use the local environment at `http://localhost:3000` unless a specific preview
-  environment is named.
-- Run `npm ci`, then start one owned `npm run dev` process.
-- No account, provider, personal data, or external side effect is required.
+- Record commit/PR head, tester, browser, device, environment, and date.
+- Use one owned development server. Port 3000 is the configured OAuth origin;
+  if another project owns it, stop that process yourself or update both local
+  `SITE_URL` and the Google OAuth origin before testing.
+- Never paste a private invitation URL into screenshots or public artifacts.
 
-## Functional Scenarios
+## Scenarios
 
-1. Open `/` directly and confirm the Pick-a-Date foundation page renders.
-2. Confirm the product-flow link moves to the four-stage preview.
-3. Confirm copy says scheduling, recommendations, and email are not connected.
-4. Reload the route and confirm there is no application error or missing asset.
-
-Result: **Pending human run**.
-
-## Integrated Human-Interface Sweep
-
-- Check one representative desktop width and one narrow phone width.
-- Navigate all links with the keyboard and confirm visible focus.
-- Check content at 200% browser zoom without loss of important information.
-- Enable reduced motion and confirm navigation does not force smooth scrolling.
-- Check readable contrast and that status is expressed in text, not color alone.
+1. `/` and `/sign-in` render the English owner entry with no missing asset.
+2. A missing `NEXT_PUBLIC_CONVEX_URL` produces the explicit configuration state.
+3. Keyboard focus remains visible and logical at desktop and narrow widths.
+4. At 200% zoom no primary control or required text is lost.
+5. Reduced-motion mode removes nonessential motion without changing behavior.
+6. A private route emits generic metadata, noindex, no-referrer, and no-store
+   behavior without leaking names, time, activity, place, address, or images.
 
 Result: **Pending human run**.
-
-## Automated Baseline
-
-`npm run check` owns lint and production build validation. It does not prove
-visual quality, keyboard behavior, responsive behavior, or real-device support.
-
-## Completion
-
-Record pass, fail, or blocked for every scenario; attach only sanitized evidence
-under `testing/artifacts/`; stop the exact development server started for the run.

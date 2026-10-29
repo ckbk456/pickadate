@@ -2,8 +2,8 @@
 
 ## Status
 
-Approved implementation contract; not yet shipped. This document owns the
-public-link threat model, data minimization, email behavior, and external links.
+Implemented in source. This document preserves the approved privacy,
+notification, and integration design; `docs/logic/` owns current behavior.
 
 ## Privacy stance
 
@@ -106,4 +106,3 @@ HTTP referrer.
 - Return generic public errors that do not reveal whether a recipient name,
   email, slug, or previous credential exists.
 - Permanent deletion invalidates the bearer credential before erasing data.
-

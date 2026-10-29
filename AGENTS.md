@@ -21,12 +21,13 @@
 - Implementation branches: `codex/<short-kebab-case-task>`.
 - Runtime: Node.js 24.17.0 from `.nvmrc`.
 - Package manager: npm; `package-lock.json` is authoritative.
-- Framework: Next.js 16 App Router with React 19 and JavaScript.
-- Application source: `src/app/`.
+- Framework: Next.js 16 App Router with React 19 and strict TypeScript.
+- Application source: `src/app/`, `src/components/`, and `src/lib/`.
+- Backend: Convex schema/functions/auth/storage/realtime/jobs under `convex/`.
+- Email adapter: Resend, called only by post-commit internal actions.
 - CI: `.github/workflows/ci.yml`.
-- There is currently no database, authentication, email provider, place-data
-  provider, deployment target, migration system, code generator, or automated
-  test suite. Do not invent or imply one.
+- Convex development is configured; generated bindings are committed. Production
+  Convex, Resend, Google OAuth, hosting, and DNS remain unconfigured/unverified.
 
 ## Before changing files
 
@@ -46,6 +47,9 @@
 | Install | `npm ci` | `package-lock.json` | 1-3 minutes | No |
 | Development server | `npm run dev` | `package.json` | Long-running | Yes |
 | Lint | `npm run lint` | `package.json` | Under 1 minute | No |
+| TypeScript | `npm run typecheck` | `package.json` | Under 1 minute | No |
+| Deterministic tests | `npm test` | Vitest | Under 3 minutes | Yes |
+| Convex bindings/dev push | `npx convex codegen --typecheck disable` | `convex/` | Under 3 minutes | Yes |
 | Production build | `npm run build` | `package.json` | 1-3 minutes | Yes |
 | Full PR gate | `npm run check` | `package.json` and CI | 2-4 minutes | Yes |
 
@@ -77,8 +81,8 @@
 
 - During implementation, run the smallest deterministic check that can disprove
   the change. Before PR-ready status, run `npm run check` once on the final tree.
-- No automated tests exist yet. Add a test framework only when a real behavior
-  justifies it and include the command in this registry and CI in the same PR.
+- Vitest owns deterministic domain and lifecycle tests. Add focused coverage for
+  each changed invariant; do not claim browser/provider coverage from unit tests.
 - Human testing owns real email/provider behavior, cross-account lifecycle,
   accessibility judgment, responsive/visual fidelity, and real-device behavior.
 - Automated validation does not prove provider delivery, production release, or
@@ -92,8 +96,9 @@
   environment, page, account, and possible external side effects.
 - Never print or commit passwords, cookies, tokens, private URLs, raw email
   links, provider payloads, or personal data.
-- Name environments precisely: local, development, preview, staging, or
-  production. No deployment environment is configured today.
+- Name environments precisely: local, Convex development, preview, staging, or
+  production. The Convex development deployment exists; no production web or
+  provider environment is configured or verified.
 - Sending real email, creating paid provider resources, changing access, or
   deploying to production always requires explicit current authorization.
 
